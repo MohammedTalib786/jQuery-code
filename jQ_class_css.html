@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .blue {
+            background-color: blue;
+        }
+
+        .whiteClr {
+            color: white;
+        }
+
+        .cssCustom {
+            background-color: cyan;
+            margin: 2rem 0 0 5rem;
+            width: 6rem;
+            height: 6rem;
+            transition: all .6s;
+            /* padding: 3rem;
+            background-color: pink;
+            border-radius: 30px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">Lorem ipsum dolor sit amet consectetur.</div>
+
+    <button id="addBtn">Add Class</button>
+    <button id="remBtn">Remove Class</button>
+    <button id="togBtn">Toggle Class</button>
+
+    <br><br><br>
+
+    <button id="addCssOne">Add One CSS</button>
+    <button id="addCssMul">Add Multiple CSS</button>
+    <button id="resetCss">Reset CSS</button>
+
+    <div class="cssCustom"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        console.log($)
+        $('#addBtn').click(() => {
+            $('.div1').addClass('blue whiteClr')
+        })
+
+        $('#remBtn').click(() => {
+            $('.div1').removeClass('blue whiteClr')
+        })
+
+        $('#togBtn').click(() => {
+            $('.div1').toggleClass('blue')
+        })
+
+
+        // css
+        $('#addCssOne').click(() => {
+            $('.cssCustom').css('background-color', 'pink')
+        })
+
+        $('#addCssMul').click(() => {
+            $('.cssCustom').css({ 'background-color': 'pink', 'border-radius': '30px', 'scale': '.6' })
+        })
+
+        // reset css styling
+        $('#resetCss').click(() => {
+            $('.cssCustom').attr('style', '')
+        })
+
+
+
+    </script>
+</body>
+
+</html>

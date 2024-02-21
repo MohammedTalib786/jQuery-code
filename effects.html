@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="hidePara">Lorem ipsum dolor.</p>
+    <button id="hideBtn">Hide Para</button><br><br>
+
+    <p id="showPara">Sit amet consectetur adipisicing.</p>
+    <button id="showBtn">Show Para</button><br><br>
+
+    <button id="toggleBtn"
+        style="outline: 0; border: 0; background-color: rgb(172, 172, 172); min-width: 100%; padding: .5rem 0rem;">Toggle
+        Para</button>
+    <div id="togglePara"
+        style="padding: .5rem 0rem; background-color: rgb(124, 124, 124); text-align: center; line-height: 2rem;">Lorem
+        ipsum, dolor sit amet consectetur adipisicing elit. Perferendis ipsa facilis, aliquam dicta quia facere
+        laboriosam unde doloremque. Molestias, velit!
+    </div>
+
+
+    <p id="forCallBack">Callback para to be Hide Lorem ipsum dolor sit.</p>
+    <button id="callBackBtn">A Button for Callback</button><br>
+
+    <p id="fadein">Fade In Para</p><button id="fadeinBtn">Fade In</button><br>
+    <p id="fadeout">Fade Out Para</p><button id="fadeoutBtn">Fade Out</button><br>
+    <p id="fadetoggle">Fade Toggle Para</p><button id="fadetoggleBtn">Fade Toggle</button><br>
+    <p id="fadeto">Fade To Para</p><button id="fadetoBtn">Fade To</button><br>
+
+    <br><br><br>
+
+    <p id="slidedown">Slide Down Para</p><button id="slidedownBtn">Slide Down</button><br>
+    <p id="slideup">Slide Up Para</p><button id="slideupBtn">Slide Up</button><br>
+    <p id="slidetoggle">Slide Toggle Para</p><button id="slidetoggleBtn">Slide Toggle</button><br>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        console.log($)
+        $(document).ready(() => {
+            // console.log(2)
+            $('#hideBtn').click(function () {
+                $('#hidePara').hide(200)
+            })
+
+            $('#showPara').hide()
+            $('#showBtn').click(() => {
+                $('#showPara').show(500)
+            })
+
+            $('#togglePara').hide();
+            $('#toggleBtn').click(() => {
+                $('#togglePara').toggle(400);
+            })
+
+
+            //without callback
+            // $('#callBackBtn').click(() => {
+            //     $('#forCallBack').hide("slow");
+            //     alert('Hide it!')
+            // })
+
+            //with callback
+            $('#callBackBtn').click(() => {
+                $('#forCallBack').hide("slow", () => {
+                    alert('Hide it')
+                })
+            })
+
+            // fadetoggle, fadeout, fadein
+
+            $('#fadein').hide();
+            $('#fadeinBtn').click(() => {
+                $('#fadein').fadeIn(1000)
+            })
+
+            
+            $('#fadeoutBtn').click(() => {
+                $('#fadeout').fadeOut(400)
+            })
+
+            $('#fadetoggle').hide();
+            $('#fadetoggleBtn').click(() => {
+                $('#fadetoggle').fadeToggle(600)
+            })
+
+            $('#fadeto').hide();
+            $('#fadetoBtn').click(() => {
+                $('#fadeto').fadeTo(600, 0.5)
+            })
+
+
+            $('#slidedown').hide()
+            $('#slidedownBtn').click(()=>{
+                $('#slidedown').slideDown(1000)
+            })
+
+            $('#slideupBtn').click(()=>{
+                $('#slideup').slideUp(1000)
+            })
+
+            $('#slidetoggleBtn').click(()=>{
+                $('#slidetoggle').slideToggle()
+            })
+
+
+
+        })
+    </script>
+</body>
+
+</html>

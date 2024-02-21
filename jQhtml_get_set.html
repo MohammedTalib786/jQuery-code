@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1><b>Hello World (Click to set Something else)</b></h1>
+    <input type="text" name="" id="inp"><button id="btn">Click</button><br>
+
+    <input type="text" name="" id="inp2"><button id="btn2">Click</button><br>
+
+    <button id="ytBtn"><a id="link" href="#">Get Attribute</a></button>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(() => {
+
+            // Getting Values
+            console.log($)
+            $('h1').click(function () {
+                console.log($(this).text())
+                console.log($(this).html())
+            })
+
+            $('#btn').click(() => {
+                let valuee = $('#inp').val()
+                console.log(valuee)
+            })
+
+            // Getting attributes
+            $('#ytBtn').click(() => {
+                alert($('#ytBtn').attr('id'))
+                alert(`Anchor Link: ${$('#link').attr('href')} And Anchor Id: ${$('#link').attr('id')} `)
+            })
+
+
+            // Setting values 
+            $('h1').click(function () {
+                // $('h1').text('Setted')
+                $(this).html('<i>Setted</i>')
+            })
+
+            $('#inp').val('Type Something!')
+
+            $('#inp2').attr('placeholder', 'Type Something!')
+
+
+
+
+
+
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+</head>
+
+<body>
+
+    <p id="demo">Hello World</p>
+    <button id="btn">Hide this btn</button>
+
+
+    <p class="cls">Lorem ipsum dolor.</p>
+    <p class="cls">sit amet consectetur adipisicing elit.</p>
+
+    <input type="text" name="" id="inp">
+    <p type="text" name="" id="inpVal">on key press in above input</p>
+    <p type="text" name="" id="hoverOnMe">Hover on me</p>
+    <button id="alertBtn">Alert btn</button>
+    <h3>The jQuery On method</h3>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            console.log($);
+
+            $('#btn').click(function () { $(this).hide() })
+
+            // $('.cls').hover(function () {
+            //     $(this).css("background-color", "red")
+            // })
+
+            $('.cls').mouseleave(function () {
+                $(this).css("background-color", "blue")
+            })
+
+            $('.cls').mouseenter(function () {
+                $(this).css("background-color", "green")
+            })
+
+            $('#inp').keypress(function () {
+                $('#inpVal').css("background-color", "pink")
+            })
+
+            $('#alertBtn').click(function () {
+                alert('The alert btn has clicked')
+            })
+
+
+            $('#hoverOnMe').hover(function () {
+                $(this).css('background', 'black').css('color', 'white')
+            }, function () {
+                $(this).css('background', 'white').css('color', 'black')
+            })
+
+            $('h3').on({
+                click: function () {
+                    $(this).css('background-color', 'yellow')
+                },
+                mouseenter: function () {
+                    $(this).css('background-color', 'pink')
+                },
+                mouseleave: function () {
+                    $(this).css('background-color', 'cyan')
+                }
+            })
+
+
+        })
+
+    </script>
+</body>
+
+</html>

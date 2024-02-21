@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pIn {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <button class="classBtns changeIt" id="classBtn">Change/Empty Class</button><br><br>
+    <button style="display: block;" id="addBtn">Click to Add</button><button style="display: block;" id="remBtn">Click
+        to Remove</button><br>
+
+    <button id="addPara">Add Div Para</button>
+    <button id="remPara">Remove Div Para</button>
+
+    <p id="pOut">Lorem, ipsum dolor.</p>
+
+    <div style="background-color: aqua; min-height: 5rem; padding: 1rem 0rem;" id="div">
+        <p class="pIn">Lorem, ipsum dolor.</p>
+        <p class="pIn">Lorem ipsum dolor sit amet consectetur.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        console.log($)
+        $(document).ready(() => {
+
+            $('#classBtn').click(() => {
+                $('#classBtn').attr('class', 'changeIt')
+                console.log($('#classBtn').attr('class'))
+
+            })
+
+            let elem = "<button id='btn'>Click Me</button>"
+            $('#addBtn').click(() => {
+                // $('#addBtn').append(elem)
+                // $('#addBtn').prepend(elem)
+                // $('#addBtn').before(elem)
+                $('#addBtn').after(elem)
+                // $('#addBtn').attr('disabled', 'true')
+            })
+
+
+            $('#remBtn').click(() => {
+                $('#btn').remove()
+            })
+            
+            let para = "<p>Lorem ipsum dolor sit amet consecteturLorem, ipsum dolor sit amet consectetur adipisicing elit. Cum, nostrum?.</p>"
+            $('#addPara').click(() => {
+                $('#div').prepend(para)
+            })
+
+            $('#remPara').click(() => {
+                $('#div').empty()
+            })
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>

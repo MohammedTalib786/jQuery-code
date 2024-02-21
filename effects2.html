@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">animate</button>
+    <div id="box" style="position: relative; width: 5rem; height: 5rem; background-color: yellow; "></div><br><br><br>
+
+    <button id="chainBtn">Chaining</button>
+    <p id="para">Lorem ipsum dolor sit amet.</p>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+
+        console.log($)
+
+        // Animate
+        $('#btn').click(() => {
+            // setTimeout(() => {
+            //     console.log('clik')
+            // }, 2000)
+            $('#box').animate({
+                left: '250px',
+                height: '2rem',
+                width: '2rem',
+                // backgroundColor: 'red'
+            }, 800, () => console.log("Done!"))
+            console.log($(this))
+        })
+
+
+        // Chaining
+        $('#chainBtn').click(() => {
+            $('#para')
+                .slideUp()
+                .slideDown()
+                .fadeOut()
+                .fadeIn()
+                .css('background-color', 'black')
+                .css('color', 'white')
+                .slideToggle()
+
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>
