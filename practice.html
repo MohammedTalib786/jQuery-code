@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btnAcc {
+            width: 100%;
+            height: 2rem;
+            background-color: grey;
+        }
+
+        #lorem {
+            /* background-color: yellowgreen; */
+            /* min-height: 2rem; */
+            padding: 0rem 2rem;
+            margin: 0;
+            margin-bottom: 2rem;
+        }
+
+        .toAnimate {
+            width: 5rem;
+            height: 5rem;
+            background-color: yellow;
+            transition: all .6s;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form" action="#">
+        <label for="username">username</label>
+        <input type="text" name="" id="username">
+        <input type="submit" name="submit" id="submit">
+    </form>
+    <p id="formData"></p>
+
+    <!-- Accordian -->
+    <button id="btnAcc">Click me to open</button>
+    <p id="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis maxime a reiciendis! Quibusdam
+        adipisci consequuntur facere a libero explicabo eum!</p>
+
+    <div class="toAnimate"></div>
+    <button id="animateBtn">Animate it!</button><button id="reset">reset</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        console.log($)
+        $(document).ready(function () {
+            $('#username').focus(function () {
+                $(this).css('background-color', 'cyan')
+            })
+
+            $('#form').submit(function (e) {
+                e.preventDefault()
+                console.log('prevented')
+            })
+            $('#username').keyup(function () {
+                // let value = 
+                $('#formData').text($(this).val())
+                // console.log($(this).val())
+            })
+
+            $('#submit').click(function () {
+                console.log($('#username').val())
+            })
+
+            $('#username').blur(function () {
+                $(this).css('background-color', 'white')
+            })
+
+            $('#lorem').hide()
+            $('#btnAcc').click(() => {
+                $('#lorem').slideToggle(700, () => console.log('Done!'))
+            })
+
+            $('#animateBtn').click(() => {
+                $('.toAnimate').css({ 'background-color': 'pink', 'border-radius': '50%' })
+            })
+
+            $('#reset').click(() => {
+                $('.toAnimate').attr('style', '')
+
+            })
+
+        })
+
+
+
+    </script>
+</body>
+
+</html>
